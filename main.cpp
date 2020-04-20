@@ -3,9 +3,12 @@
 #include<cstdlib>
 #include<ctime>
 #include<cstring>
+#include"MD5"
 #include<windows.h>
 #include<Mmsystem.h>
-
+//mac系统下头文件替换为
+// #include <thread>
+// #include <chrono>
 using namespace std;
 void PrintMessage(string s)//自定义打字机效果输出函数
 {
@@ -20,6 +23,8 @@ void PrintMessage(string s)//自定义打字机效果输出函数
         cout<<char(*p);
         fflush(stdout);
         Sleep(50);
+// 	mac下
+// 	this_thread::sleep_for(std::chrono::milliseconds(50));
         p++;
     }
 }
@@ -48,10 +53,18 @@ void Student::Set(char name[50])//人物参数设置
     for(int i=0;name[i]!='\0';i++)
         this->name[i]=name[i];
     blood = 300;
-    brave = rand()%100;
-    noble = rand()%100;
-    wisdom = rand()%100;
-    integrity = rand()%100;
+    string md5 = MD5(name).toString();
+    double md5_sum[4] = {0, 0, 0, 0};
+    double md5_point[4] = {0, 0, 0, 0};
+    for (int i = 0; i < 4; i++)
+        for (int j = 0; j < 8; j++)
+            md5_sum[i] += int(md5[i * 8 + j]);
+    for (int i = 0; i < 4; i++)
+        md5_point[i] = floor(40 + (md5_sum[i] - 384) / 592 * 60 + 0.5);
+    brave = md5_point[0];
+    noble = md5_point[1];
+    wisdom = md5_point[2];
+    integrity = md5_point[3];
 }
 
 void Student::Show()//展示参数
@@ -73,7 +86,7 @@ void Student::Test()//第一关测试题函数
     }
     string question;
     string option;
-    for (int i = 0;i < 1; ++i)
+    for (int i = 0;i < 10; ++i)
     {
         getline(fin, question);
         PrintMessage(question);
@@ -99,8 +112,8 @@ void Student::Exam()//第二关测试题函数
     }
     string question;
     string option;
-    char* ans= "BBCAABDDA";
-    for (int i = 0;i < 2; ++i)
+    char* ans= "BBCAABDDAC";
+    for (int i = 0;i < 10; ++i)
     {
         getline(fin, question);
         PrintMessage(question);
