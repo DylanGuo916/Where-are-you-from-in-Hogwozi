@@ -5,7 +5,7 @@
 #include<cstring>
 #include<windows.h>
 #include<Mmsystem.h>
-#include"MD5"
+#include"MD5.h"
 using namespace std;
 void PrintMessage(string s)//自定义打字机效果输出函数
 {
