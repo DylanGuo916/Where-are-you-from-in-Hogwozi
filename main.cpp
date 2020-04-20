@@ -3,12 +3,9 @@
 #include<cstdlib>
 #include<ctime>
 #include<cstring>
-#include"MD5"
 #include<windows.h>
 #include<Mmsystem.h>
-//mac系统下头文件替换为
-// #include <thread>
-// #include <chrono>
+#include"MD5"
 using namespace std;
 void PrintMessage(string s)//自定义打字机效果输出函数
 {
@@ -23,8 +20,6 @@ void PrintMessage(string s)//自定义打字机效果输出函数
         cout<<char(*p);
         fflush(stdout);
         Sleep(50);
-// 	mac下
-// 	this_thread::sleep_for(std::chrono::milliseconds(50));
         p++;
     }
 }
@@ -355,7 +350,7 @@ int main()
 	Print(begin3);
 	cout<<endl;
 
-	char name1[10000];
+	char name1[50];
 	cin>>name1;//输入人物名字
 
 	const char *begin4="亲爱的";Print(begin4);const char *begin5=name1;Print(begin5); const char *begin6=",你的天赋属性为：";Print(begin6);
