@@ -112,8 +112,8 @@ void Student::Exam()//第二关测试题函数
     }
     string question;
     string option;
-    char* ans= "BBCAABDDAC";
-    for (int i = 0;i < 10; ++i)
+    char* ans= "BBCAABDDA";
+    for (int i = 0;i < 9; ++i)
     {
         getline(fin, question);
         PrintMessage(question);
