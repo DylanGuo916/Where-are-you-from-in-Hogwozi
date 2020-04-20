@@ -1,12 +1,11 @@
 #include<iostream>
-#include<windows.h>
+#include<fstream>
 #include<cstdlib>
 #include<ctime>
 #include<cstring>
+#include<windows.h>
 #include<Mmsystem.h>
-#include<stdio.h>
-#include<iostream>
-#include<fstream>
+
 using namespace std;
 void PrintMessage(string s)//自定义打字机效果输出函数
 {
@@ -34,7 +33,7 @@ class Student//人物类
 		int wisdom;//智慧
 		int integrity;//正直
 	public:
-		void Set(char na[10000]);//人物参数设置
+		void Set(char name[50]);//人物参数设置
 		void Show();//展示参数
 		void Test();//第一关测试题函数
 		void Exam();//第二关测试题函数
