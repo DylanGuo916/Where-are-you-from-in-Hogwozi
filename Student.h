@@ -1,7 +1,3 @@
-//
-// Created by 郭喆 on 2020/4/20.
-//
-
 #ifndef Where-are-you-from-in-Hogwozi_STUDENT_H
 #define Where-are-you-from-in-Hogwozi_STUDENT_H
 
